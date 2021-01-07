@@ -1,2 +1,2 @@
-# sushiquiz
-A quiz about sushi!
+# sushi-quiz
+It's a quiz about sushi! Yay!

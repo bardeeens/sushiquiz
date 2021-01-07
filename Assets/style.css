@@ -1,0 +1,21 @@
+body {
+    background-image: url(../Assets/Images/nigiri.jpg);
+}
+
+.my-timer {
+  float: right;  
+  border: solid;
+  border-radius: 2%;
+  background-color: gray;
+  font-family: sans-serif;
+}
+
+#start-button {
+    background-color: cadetblue;
+    margin: 10%;
+}
+
+.box {
+    /* min-width: 75%; */
+    min-height: 50vh;
+}
