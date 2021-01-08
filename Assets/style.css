@@ -1,21 +1,33 @@
 body {
     background-image: url(../Assets/Images/nigiri.jpg);
-}
-
-.my-timer {
-  float: right;  
-  border: solid;
-  border-radius: 2%;
-  background-color: gray;
-  font-family: sans-serif;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: cadetblue;
+    background-blend-mode:hard-light;
+    background-position-y: 3%;
 }
 
 #start-button {
     background-color: cadetblue;
-    margin: 10%;
+    margin-top: 5%;
+    border-radius: 7%;
+    font-weight: bold;
+    color: white;
 }
 
 .box {
     /* min-width: 75%; */
     min-height: 50vh;
 }
+
+.hidden {
+    visibility: hidden;
+}
+
+.question {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+}
+
