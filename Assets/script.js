@@ -8,7 +8,7 @@ var score = 0;
 var scoreArr = []
 var entireQuiz = [
     {
-        q: "Assets/Images/salmon.jpg",
+        q: "Assets/Images/shake.jpg",
         choices: ["salmon", "octopus", "tuna", "crab"],
         answer: "salmon"
     },
@@ -100,7 +100,7 @@ function displayQuestion() {
         const choice = entireQuiz[questionIndex].choices[i]
         var button = document.createElement("button");
         button.textContent = choice;
-        button.setAttribute("class", "m-1 bg-dark text-light d-inline")
+        button.setAttribute("class", "m-1 bg-dark text-light d-inline align-bottom")
         button.addEventListener("click", function () {
             var userChoice = this.textContent
             // console.log(userChoice);
