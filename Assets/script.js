@@ -5,6 +5,7 @@ var startButton = document.getElementById("start-button")
 var questionIndex = 0;
 var question = ""
 var score = 0;
+var scoreArr = []
 var entireQuiz = [
     {
         q: "Assets/Images/salmon.jpg",
@@ -87,9 +88,10 @@ function displayQuestion() {
 
     document.querySelector("#quiz").innerHTML = "";
     var questionImage = document.createElement("img");
-    questionImage.setAttribute("src", entireQuiz[questionIndex].q)
-    questionImage.setAttribute("style", "width:300px;height:300px;")
-    document.querySelector("#quiz").appendChild(questionImage)
+    questionImage.setAttribute("src", entireQuiz[questionIndex].q);
+    questionImage.setAttribute("style", "width:300px;height:300px;");
+    questionImage.setAttribute("class", "mr-5 ml-5");
+    document.querySelector("#quiz").appendChild(questionImage);
 
     
 
@@ -98,6 +100,7 @@ function displayQuestion() {
         const choice = entireQuiz[questionIndex].choices[i]
         var button = document.createElement("button");
         button.textContent = choice;
+        button.setAttribute("class", "m-1 bg-dark text-light d-inline")
         button.addEventListener("click", function () {
             var userChoice = this.textContent
             // console.log(userChoice);
@@ -126,6 +129,7 @@ function currentAnswer() {
 function checkAnswer(userChoice) {
     if (userChoice === currentAnswer()) {
         score += 5;
+
     }
     else {
         testDuration -= 10;
@@ -142,14 +146,28 @@ function checkAnswer(userChoice) {
 
 function highScore() {
     document.querySelector("#quiz").innerHTML = "";
-    localStorage.setItem("score", score)
+    timerEl.setAttribute("class", "d-none");
+    // localStorage.setItem("score", score)
     // console.log(localStorage);
-    var nameForm = document.createElement("form");
-    nameForm.textContent= "Give us your name, you loser"
-    nameForm.setAttribute("class", "bg-dark text-white text-center")
+    var endingMessage = document.createElement("h1");
+    endingMessage.textContent= "🍣Great job!🍣"
+    endingMessage.setAttribute("class", "bg-dark text-white text-center");
+    document.querySelector("#quiz").appendChild(endingMessage);
+
+    var nameForm = document.createElement("input");
+    nameForm.setAttribute("type", "text");
+    nameForm.setAttribute("placeholder", "Enter your name");
     document.querySelector("#quiz").appendChild(nameForm);
-    clearInterval(timerInterval)
-    timerEl.textContent = ''
+
+    var submitName = document.createElement("input");
+    submitName.setAttribute("type", "submit");
+    submitName.setAttribute("value", "Enter to Win!");
+    submitName.setAttribute("class", "m-1")
+    document.querySelector("#quiz").appendChild(submitName);
+
+    scoreArr.push(score);
+    localStorage.setItem("score", scoreArr);
+    console.log(localStorage);
     
 
 }
