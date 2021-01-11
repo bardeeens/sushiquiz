@@ -148,8 +148,7 @@ function checkAnswer(userChoice) {
 var highScore = function() {
     document.querySelector("#quiz").innerHTML = "";
     timerEl.setAttribute("class", "d-none");
-    // localStorage.setItem("score", score)
-    // console.log(localStorage);
+    displayHighScore();
     var endingMessage = document.createElement("h1");
     endingMessage.textContent= "🍣Great job!🍣"
     endingMessage.setAttribute("class", "bg-dark text-white text-center");
@@ -166,22 +165,25 @@ var highScore = function() {
     submitName.setAttribute("value", "Enter to Win!");
     submitName.setAttribute("class", "m-1")
     document.querySelector("#quiz").appendChild(submitName);
-    submitName.addEventListener("click", function () {
+    submitName.addEventListener("click", function (event) {
+        event.preventDefault();
         scoreName = {
             score: score,
-            name: nameForm.value
+            name: nameForm.value.trim()
         };
         localStorage.setItem("scoreName", JSON.stringify(scoreName));
             console.log(localStorage);
-            displayHighScore();
+            
     })
 }
 console.log(scoreName);
 
 function displayHighScore() {
+    var highScoreList = document.querySelector("#highscore");
+    highScoreList.setAttribute("class", "bg-dark text-light text-center")
     var lastScore = JSON.parse(localStorage.getItem("scoreName"));
   if (lastScore !== null) {
-    document.querySelector("#highscore").textContent = lastScore.name + ": " + lastScore.score;
+    highScoreList.textContent = lastScore.name + ": " + lastScore.score;
 }
 }
 
