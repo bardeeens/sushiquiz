@@ -5,7 +5,8 @@ var startButton = document.getElementById("start-button")
 var questionIndex = 0;
 var question = ""
 var score = 0;
-var scoreArr = []
+var nameForm = document.createElement("input");
+var scoreName = {};
 var entireQuiz = [
     {
         q: "Assets/Images/shake.jpg",
@@ -29,10 +30,10 @@ var entireQuiz = [
     }
 ];
 
-console.log(localStorage);
-
-startButton.addEventListener("click", function () {
+startButton.addEventListener("click", function (event) {
+    event.preventDefault();
     countDownToQuiz();
+    startButton.setAttribute("class", "d-none");
 
 });
 
@@ -144,7 +145,7 @@ function checkAnswer(userChoice) {
 
 }
 
-function highScore() {
+var highScore = function() {
     document.querySelector("#quiz").innerHTML = "";
     timerEl.setAttribute("class", "d-none");
     // localStorage.setItem("score", score)
@@ -154,21 +155,33 @@ function highScore() {
     endingMessage.setAttribute("class", "bg-dark text-white text-center");
     document.querySelector("#quiz").appendChild(endingMessage);
 
-    var nameForm = document.createElement("input");
+    
     nameForm.setAttribute("type", "text");
     nameForm.setAttribute("placeholder", "Enter your name");
     document.querySelector("#quiz").appendChild(nameForm);
 
     var submitName = document.createElement("input");
     submitName.setAttribute("type", "submit");
+    submitName.setAttribute("id", "nameForm")
     submitName.setAttribute("value", "Enter to Win!");
     submitName.setAttribute("class", "m-1")
     document.querySelector("#quiz").appendChild(submitName);
-
-    scoreArr.push(score);
-    localStorage.setItem("score", scoreArr);
-    console.log(localStorage);
-    
-
+    submitName.addEventListener("click", function () {
+        scoreName = {
+            score: score,
+            name: nameForm.value
+        };
+        localStorage.setItem("scoreName", JSON.stringify(scoreName));
+            console.log(localStorage);
+            displayHighScore();
+    })
 }
-console.log(localStorage);
+console.log(scoreName);
+
+function displayHighScore() {
+    var lastScore = JSON.parse(localStorage.getItem("scoreName"));
+  if (lastScore !== null) {
+    document.querySelector("#highscore").textContent = lastScore.name + ": " + lastScore.score;
+}
+}
+
