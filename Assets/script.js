@@ -55,7 +55,7 @@ function countDownToQuiz() {
 }
 
 function beginQuiz() {
-    question = document.createElement("main");
+    question = document.createElement("h1");
     question.textContent = "What kind of sushi is this?";
     question.setAttribute("class", "question");
     document.querySelector(".box").appendChild(question);
@@ -87,12 +87,13 @@ function displayQuestion() {
     }
 
 
-    document.querySelector("#quiz").innerHTML = "";
+    document.querySelector(".quiz-img").innerHTML = "";
+    document.querySelector(".quiz-button").innerHTML = "";
     var questionImage = document.createElement("img");
     questionImage.setAttribute("src", entireQuiz[questionIndex].q);
     questionImage.setAttribute("style", "width:300px;height:300px;");
-    questionImage.setAttribute("class", "mr-5 ml-5");
-    document.querySelector("#quiz").appendChild(questionImage);
+    questionImage.setAttribute("class", "mr-5 ml-5 my-img");
+    document.querySelector(".quiz-img").appendChild(questionImage);
 
     
 
@@ -100,8 +101,10 @@ function displayQuestion() {
 
         const choice = entireQuiz[questionIndex].choices[i]
         var button = document.createElement("button");
+        var buttonDiv = document.createElement("div")
         button.textContent = choice;
-        button.setAttribute("class", "m-1 bg-dark text-light d-inline align-bottom")
+        buttonDiv.setAttribute("class", "col-6 d-inline align-bottom buttons")
+        button.setAttribute("class", "my-button")
         button.addEventListener("click", function () {
             var userChoice = this.textContent
             // console.log(userChoice);
@@ -114,7 +117,9 @@ function displayQuestion() {
             //if wrong timer -5
             //
         })
-        document.querySelector("#quiz").appendChild(button);
+        
+        document.querySelector(".quiz-button").appendChild(buttonDiv);
+        buttonDiv.appendChild(button);
 
     
 

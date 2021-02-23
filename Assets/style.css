@@ -1,18 +1,22 @@
 body {
-    background-image: url(../Assets/Images/nigiri.jpg);
+    background-image: url(../Assets/Images/asianbackground.jpg);
     background-repeat: no-repeat;
-    background-position: center;
-    background-color: cadetblue;
-    background-blend-mode:hard-light;
-    background-position-y: 3%;
+    background-position:center;
+    background-size: auto;
+    text-align: center;
+    /* background-color: cadetblue; */
+    /* background-blend-mode:hard-light; */
+    /* background-position-y: 3%; */
 }
 
-#start-button {
-    background-color: cadetblue;
-    margin-top: 5%;
-    border-radius: 7%;
+.my-button {
+    background-color: #85bb65;
+    margin-top: 5px;
+    border-radius: 15px;
+    border: none;
     font-weight: bold;
-    color: white;
+    color: black;
+    display: inline-block;
 }
 
 .box {
@@ -26,13 +30,20 @@ body {
 
 .question {
     text-align: center;
-    color: white;
     font-weight: bold;
-    background-color: black;
+    color: white;
 }
 
 
 #high-score-box {
     border: solid;
     background-color: black;
+}
+
+.center {
+    margin:auto;
+}
+
+.my-img {
+    border-radius: 10px;
 }

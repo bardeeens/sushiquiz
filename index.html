@@ -9,15 +9,31 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-3"><button class="bg-dark"><a class="text-light text-center" href="score.html">High Scores</a></button></div>
-            <div class="col-6 box">
-                <div id="timer" class="text-center text-light margin-auto">This is a quiz to see if you can correctly determine sushi!</div>
-                <button id="start-button" class="col-md-4 col-xs-12 offset-md-4 bg-dark text-light text-center">START</button>
-                <div id="quiz"></div>
+        <div class="row justify-content-md-center">
+            <div class="col-12-sm margin-auto box">
+                <div class="row">
+                    <div class="col-12">
+                            <a class="my-button" href="score.html">High Scores</a>
+                        <div id="timer" class="text-center margin-auto"><h1>You think you know your sushi?</h1></div>
+                       
+                    </div>
+                </div>
+                <div class="row center">
+                    <div class="col-12 margin-auto">
+                        <button id="start-button" class="my-button">START</button>
+                    </div>
+                </div>
+                <div id="quiz container">
+                    <div class="row justify-content-md-center">
+                        <div class="col-12-sm col-6-md quiz-img"></div>
+                    </div>
+                    <div class="row margin-auto quiz-button ml-5 mr-5">
+                        <div class="col-12"></div>
+                        <!-- <div class="col-12-sm col-6-md quiz-button justify-content-md-center"></div> -->
+                    </div>
+                </div>
                 <div id="highscore"></div>
             </div>
-            <div class="col-3"></div>
         </div>
     </div>
  <script src="Assets/script.js"></script>  
